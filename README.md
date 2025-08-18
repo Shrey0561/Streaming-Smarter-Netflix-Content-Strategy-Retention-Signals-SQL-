@@ -1,72 +1,67 @@
-# Streaming Smarter: A Netflix SQL Case Study
-This  project simulates a real-world business scenario: what would a content strategy analyst uncover if they were dropped into Netflix's global catalog with nothing but SQL?
+# Streaming Smarter: Netflix Viewer Retention Analysis (SQL + Excel)
+> This project simulates a real-world scenario: what a content analyst might uncover when exploring Netflix's catalog using only SQL.
 
 ## TL;DR
-Analyzed 8,800+ Netflix titles using SQL to uncover content trends, global expansion insights, and data quality gaps. Focused on genres, top-producing countries, longest-running shows, and common data pitfalls, all through query-first analysis.
+**Problem:** Netflix needs to understand what types of content drive global growth and viewer retention.
 
-## Table of Contents
- * [Objective](#objective)
- * [Tools Used](#tools-used)
- * [Folder Structure](#folder-structure)
- * [SQL Queries Preview](#sql-queries-preview)
- * [Key Business Questions & Insights](#key-business-questions--insights)
- * [Case Study: Behind the Queries](#case-study-behind-the-queries)
- * [Why This Project Matters](#why-this-project-matters)
- * [What I'd Explore Next](#what-id-explore-next)
- * [Let's Connect](#lets-connect)
+**Process:** Queried and cleaned **8,800+ titles** using SQL to analyze trends in genres, production countries, season longevity, and data quality.
 
-## Objective
-To explore Netflix's content strategy and global growth patterns by answering business-style questions using only SQL. The project spans everything from genre popularity and director frequency to content-type breakdowns and a full-on data audit.
+**Result:** 
+- Identified **Action & Drama** as globally scalable content
+- Flagged data quality gaps (e.g., missing dates, inconsistent country labels)
+- Highlighted **India and South Korea** as rising content producers
 
-## Tools Used
- * SQL: Data cleaning, transformation, and insights
- * Excel: Used only to fix UTF-8 encoding errors for CSV imports
- * Dataset: Netflix Titles from Kaggle
-
-## Folder Structure 
-| Folder File                      | Description                   |
-|----------------------------------|-------------------------------|
-| `/queries/`                      | 8 cleaned SQL files           |
-| `README.md`                      | This file                     |
-| `/images/`                       | Screenshots of outputs        |
-| `case study.pdf`                 | Full business case study      |
+**Takeaway:** SQL-driven content analytics can guide smarter platform investments without advanced BI tools.
 
 ## SQL Queries Preview 
-Below is a snapshot of a few SQL blocks used in the project, covering data cleaning, retention logic, and genre segmentation
+Snapshot of SQL queries used for data cleaning and segmentation, including genre counts, production-country trends, and title longevity. 
 
 ![Dirty data queries](dirty_data_queries.png)
 
-![Genres queries](genres_query.png)
+## Table of Contents
+ * [Overview](#overview)
+ * [Tools Used](#tools-used)
+ * [Key Business Questions & Insights](#key-business-questions--insights)
+ * [Case Study - Full Walkthrough](#case-study--full--walkthrough)
+ * [What I'd Explore Next](#what-id-explore-next)
+ * [What This Project Demonstrates](#what-this-project-demonstrates)
+ * [Let's Connect](#lets-connect)
+
+## Overview
+This project investigates Netflix's content strategy and global expansion patterns using only SQL. By querying 8,800+ titles, it explores genre popularity, top production countries, director frequency, and data quality issues, all through a business-question lens.
+
+## Tools Used
+**SQL:** Data cleaning, transformation, and exploratory analysis
+
+**Microsoft Excel (minor):** Used only to fix UTF-8 encoding errors during CSV import
 
 ## Key Business Questions & Insights
 
-### Most Content-Heavy Years
- * **Top Year**: **2018** (1,144 titles)
- * **Insight**: Spike tied to Netflix's international expansion
+**📈 Peak Content Growth Year** 
+- **2018:** 1,144 titles -> expansion linked to global growth strategy
 
-### Top Content Producing Countries
- * **USA**: 2,806 titles
- * **India**: 972 titles
- * **Insight**: Strong regional storytelling push, India's presence supports Netflix's APAC strategy.
+**🌍 Top Content-Producing Countries**
+ - USA: **2,806 titles**
+ - India: **972 titles**
+ - **Insight**: Regional storytelling (especially APAC) is becoming key
 
-### Content Type Breakdown
- * **Movies**: 6,119 titles
- * **TV Shows**: 2,674 titles
- * **Insight**: Netflix leans into short-form and bingeable content. TV is catching up, but movies still lead
+**🎬 Content Type Split**
+ - Movies: **6,119 titles**
+ - TV Shows: **2,674 titles**
+ - **Insight**: Movies still dominate, but TV is rising as binge behavior grows
 
-### Most Popular Genres
+**🎭 Top Genres**
+
 | Genre Combo                                       | Count                              |
 |---------------------------------------------------|------------------------------------|
 | Dramas, International Movies                      | 361                                |
 | Documentaries                                     | 358                                |
 | Stand-Up Comedy                                   | 334                                |
-| Comedies, Dramas, International Movies            | 273                                |
-| Dramas, Independent Movies, International Movies  | 251                                |
 
 
-Drama and International content  dominate, reflecting a global first strategy. Stand-up comedy also performs strongly.
+**Insight:** Drama & international focus show Netflix's global-first strategy
 
-### Most Frequent Directors
+**🎥 Most Frequent Directors**
 
 | Director                                       | Titles                     |
 |------------------------------------------------|----------------------------|
@@ -74,57 +69,54 @@ Drama and International content  dominate, reflecting a global first strategy. S
 | Raul Campos, Jan Suter                         | 18                         |
 | Suhas Kadav                                    | 16                         |
 | Martin Scorsese                                | 12                         |
-| Steven Spielberg                               | 11                         |
 
+**Insight:** Mix of international animation + iconic film directors
 
-**Insight**: A mix of animation, international, and legendary directors.
+**⏱ Average Movie Run-Time**
+- Avg length: **99.6 mins**
+- **Outliers** flagged -> signals need for data review
 
-### Average Movie Duration
-* **Average Movie Length**: 99.57 mins
-* **Outliers**: Flagged for data quality review
+**📺 Longest-Running TV Shows**
 
- ### Longest Running TV Shows
- | Column                           | Missing Values           |
- |----------------------------------|--------------------------|
- | Grey's Anatomy                   | 17                       |
- | Supernatural                     | 15                       |
- | NCIS                             | 15                       |
- | Heartland                        | 13                       |
- | Criminal Minds                   | 12                       |
+ | Title             | Seasons           |
+ |-------------------|-------------------|
+ | Grey's Anatomy    | 17                |
+ | Supernatural      | 15                |
 
-**Insight**: Classic binge-worthy shows dominate this list.
+**Insight:** Long-running US dramas drive binge retention
 
-### Dirty Data Audit
-| Column           | Missing Values        |
+**🧼 Data Quality Check**
+
+| Field            | Missing Values        |
 |------------------|-----------------------|
 | Director         | 2633                  |
 | Cast             | 825                   |
-| Country          | 830                   |
-| Title            | 29                    |
-| Genre            | 0                     |
-| Description      | 0                     |
 
-**Observation**: Shows how important data cleaning is even in published datasets.
+**Observation:** Cleaning is essential even on high-profile public datasets.
+> *Overall Takeaway:* SQL-only exploration can uncover big insights into Netflix's content strategy, even without BI tools.
 
-## Case Study: Behind the Queries
-The full case study walks through the logic, insights, and recommendations that guided each query block. It also connects the SQL outputs to real content strategy decisions Netflix might make.
+## Case Study - Full Walkthrough
+Covers the SQL logic, insights, and recommendations behind each query block, and connects the outputs to real-world content strategy decisions Netflix might explore.
 
 [View the full case study](https://docs.google.com/document/d/1v0nIUuxNxiTiPsNWtdvXeOKIJabTFmtJuQ1BOnej7pw/edit?usp=sharing)
 
-## Why This Project Matters
-This project proves that *SQL alone* can drive deep insights when used  with structure and purpose. By simulating a real-life analyst task from cleaning and wrangling to answering key business questions, this project demonstrates both technical fluency and critical thinking.
-
 ## What I'd Explore Next
-If this were a real Netflix strategy engagement, I'd:
- * Overlay user ratings to see if genre trends match audience demand
- * Do time-based churn risk for older shows
- * Build a Python model for predicting binge-worthy content combos
+In a future version of this project, I would:
+- Overlay viewer ratings to check if genre trends align with audience demand
+- Explore time-based churn risk for older shows
+- Begin testing a Python model to predict binge-worthy content combinations
+
+## What This Project Demonstrates
+- Ability to derive business insights using SQL without BI tools
+- Exposure to real-world data cleaning and exploratory analysis
+- Understanding of how content trends link to strategic decisions
+- Interest in streaming/media analytics and early-career SQL application
 
 ## Let's Connect
-I'm actively building tools to uncover workplace insights through data. Feel free to reach out via:
+I'm building my career in data analytics with a focus on turning business questions into insight. Feel free to reach out via:
  * [GitHub](https://github.com/Shrey0561)
  * [LinkedIn](https://www.linkedin.com/in/shreya-srinath-879a66205/)
  * [Notion](https://www.notion.so/Data-Analyst-Portfolio-221ebe151fdd801e9445e32590b67758?source=copy_link)
 
 
-I'm always up for conversations or new opportunities!
+I'm always up for conversations, mentorship, or entry-level opportunities.
