@@ -1,8 +1,8 @@
-# Streaming Smarter: Netflix Viewer Retention Analysis (SQL + Excel)
+# Streaming Smarter: Netflix Content Strategy & Retention Signals (SQL)
 > This project simulates a real-world scenario: what a content analyst might uncover when exploring Netflix's catalog using only SQL.
 
 ## TL;DR
-**Problem:** Netflix needs to understand what types of content drive global growth and viewer retention.
+**Problem:** Netflix needs to understand what types of content signal global growth and retention potential.
 
 **Process:** Queried and cleaned **8,800+ titles** using SQL to analyze trends in genres, production countries, season longevity, and data quality.
 
@@ -93,7 +93,7 @@ This project investigates Netflix's content strategy and global expansion patter
 | Cast             | 825                   |
 
 **Observation:** Cleaning is essential even on high-profile public datasets.
-> *Overall Takeaway:* SQL-only exploration can uncover big insights into Netflix's content strategy, even without BI tools.
+> *Overall Takeaway:* These insights act as early indicators of what content categories are likely to support, engagement, and long-term platform retention.
 
 ## Case Study - Full Walkthrough
 Covers the SQL logic, insights, and recommendations behind each query block, and connects the outputs to real-world content strategy decisions Netflix might explore.
@@ -111,9 +111,10 @@ In a future version of this project, I would:
 - Exposure to real-world data cleaning and exploratory analysis
 - Understanding of how content trends link to strategic decisions
 - Interest in streaming/media analytics and early-career SQL application
+- Ability to use content attributes as proxies for retention and engagement when direct user data is unavailable.
 
 ## Let's Connect
-I'm building my career in data analytics with a focus on turning business questions into insight. Feel free to reach out via:
+I'm building my career in data analytics with a focus on turning business questions into insights. Feel free to reach out via:
  * [GitHub](https://github.com/Shrey0561)
  * [LinkedIn](https://www.linkedin.com/in/shreya-srinath-879a66205/)
  * [Notion](https://www.notion.so/Data-Analyst-Portfolio-221ebe151fdd801e9445e32590b67758?source=copy_link)
